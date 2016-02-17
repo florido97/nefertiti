@@ -20,6 +20,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movment = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce(movment * speed);
+        rb.AddForce(movment * speed, ForceMode2D.Force);
     }
 }
