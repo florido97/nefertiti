@@ -4,22 +4,49 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed;
+    public float speed = 0f, JumpVelocity = 10;
+    public LayerMask playerMask;
+    public bool canMoveInAir = true;
+    Transform myTrans, tagGround;
+    Rigidbody2D rb;
+    bool isGrounded = false;
 
-    private Rigidbody2D rb;
-
+    // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        myTrans = gameObject.GetComponent<Transform>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        tagGround = GameObject.Find(this.name + "/tag_ground").transform;
     }
 
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        //
+        isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
 
-        Vector3 movment = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Move(Input.GetAxis("Horizontal"));
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }
+    }
+    void Move(float horizontalInput)
+    {
+        if (!canMoveInAir && !isGrounded)
+            return;
+        
 
-        rb.AddForce(movment * speed, ForceMode2D.Force);
+        Vector2 moveVel = rb.velocity;
+        moveVel.x = horizontalInput * speed;
+        rb.velocity = moveVel;
+    }
+
+    public void Jump()
+    {
+        if (isGrounded)
+        {
+            rb.velocity += JumpVelocity * Vector2.up/*,ForceMode2D.Impulse*/;
+        }
     }
 }
