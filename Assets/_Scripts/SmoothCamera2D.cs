@@ -3,11 +3,10 @@ using System.Collections;
 
 public class SmoothCamera2D : MonoBehaviour
 {
-    [SerializeField]
-    private float dampTime = 0.15f;
+
+    public float dampTime = 0.15f;
     private Vector3 velocity = Vector3.zero;
-    [SerializeField]
-    private Transform target;
+    public Transform target;
     Camera cam;
 
     void Start()
