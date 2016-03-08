@@ -9,5 +9,6 @@ public class Tags
     public const string playerObject = "PlayerObject";
     public const string Bulletpoint = "Bulletpoint";
     public const string wall = "Wall";
+    public const string b0ssTrigger = "b0ssTrigger";
 
 }
