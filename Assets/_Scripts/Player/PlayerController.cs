@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
         tagGround = GameObject.Find(this.name + "/tag_ground").transform;
         //tagLeft = GameObject.Find(this.name + "/tag_left").transform;
         //tagRight = GameObject.Find(this.name + "/tag_right").transform;
-
     }
 
     // Update is called once per frame
