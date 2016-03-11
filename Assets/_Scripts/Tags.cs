@@ -5,6 +5,8 @@ public class Tags
 {
 
     public const string Lever = "Lever";
+    public const string WallLever = "WallLever";
+    public const string PresurePlate = "PresurePlate";
     public const string overHealth = "overHealth";
     public const string playerObject = "PlayerObject";
     public const string Bulletpoint = "Bulletpoint";
