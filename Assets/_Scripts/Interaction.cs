@@ -16,8 +16,6 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown("space"))
             {
-                Debug.Log("Hit Lever");
-
                 Door();
             }
         }
@@ -25,13 +23,11 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown("space"))
             {
-                Debug.Log("Hit WallLever");
                 Floor();
             }
         }
         if (coll.gameObject.tag == Tags.PresurePlate)
         {
-            Debug.Log("Hit PresurePlate");
             PresurePlate();
         }
     }
