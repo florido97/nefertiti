@@ -4,17 +4,15 @@ using System.Collections;
 public class FallFloor : MonoBehaviour
 {
     Interaction interAction;
-    private BoxCollider2D myHitBox;
 
     void Start()
     {
-        myHitBox = GetComponent<BoxCollider2D>();
         interAction = GameObject.Find("Player").GetComponent<Interaction>();
-        interAction.PresurePlate += PresurePlate;
+        interAction.TrapDoor += TrapDoor;
     }
 
-    void PresurePlate()
+    void TrapDoor()
     {
-        myHitBox.enabled = !myHitBox.enabled;
+        gameObject.SetActive(false);
     }
 }

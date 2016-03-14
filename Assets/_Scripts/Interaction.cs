@@ -8,7 +8,8 @@ public class Interaction : MonoBehaviour
     public delegate void InteractionEventHandaler();
     public InteractionEventHandaler Door;
     public InteractionEventHandaler Floor;
-    public InteractionEventHandaler PresurePlate;
+    public InteractionEventHandaler TrapDoor;
+    public InteractionEventHandaler NextLevel;
 
     void OnTriggerStay2D(Collider2D coll)
     {
@@ -28,7 +29,11 @@ public class Interaction : MonoBehaviour
         }
         if (coll.gameObject.tag == Tags.PresurePlate)
         {
-            PresurePlate();
+            TrapDoor();
+        }
+        if (coll.gameObject.tag == Tags.NextLevelWall)
+        {
+            NextLevel();
         }
     }
 }
