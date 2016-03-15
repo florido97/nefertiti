@@ -14,14 +14,14 @@ public class Interaction : MonoBehaviour
     {
         if (coll.gameObject.tag == Tags.Lever)
         {
-            if (Input.GetKeyDown("space"))
+            if (Input.GetButtonDown("Interact"))
             {
                 Door();
             }
         }
         if (coll.gameObject.tag == Tags.WallLever)
         {
-            if (Input.GetKeyDown("space"))
+            if (Input.GetButtonDown("Interact"))
             {
                 Floor();
             }
