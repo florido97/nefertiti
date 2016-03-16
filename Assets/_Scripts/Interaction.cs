@@ -5,10 +5,10 @@ using System;
 
 public class Interaction : MonoBehaviour
 {
-    public delegate void InteractionEventHandaler();
-    public InteractionEventHandaler Door;
-    public InteractionEventHandaler Floor;
-    public InteractionEventHandaler PresurePlate;
+    public delegate void InteractionEventHandler();
+    public InteractionEventHandler Door;
+    public InteractionEventHandler Floor;
+    public InteractionEventHandler PresurePlate;
 
     void OnTriggerStay2D(Collider2D coll)
     {
