@@ -18,12 +18,14 @@ public class Interaction : MonoBehaviour
             if (Input.GetButtonDown("Interact"))
             {
                 Door();
+                coll.gameObject.GetComponent<Renderer>().material.color = Color.blue;//temp
             }
         }
         if (coll.gameObject.tag == Tags.WallLever)
         {
             if (Input.GetButtonDown("Interact"))
             {
+                coll.gameObject.GetComponent<Renderer>().material.color = Color.blue;
                 Floor();
             }
         }
