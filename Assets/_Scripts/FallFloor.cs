@@ -8,10 +8,10 @@ public class FallFloor : MonoBehaviour
     void Start()
     {
         interAction = GameObject.Find("Player").GetComponent<Interaction>();
-        interAction.PresurePlate += PresurePlate;
+        interAction.TrapDoor += TrapDoor;
     }
 
-    void PresurePlate()
+    void TrapDoor()
     {
         gameObject.SetActive(false);
     }
