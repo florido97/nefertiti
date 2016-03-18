@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     //bool isOnLeftWall = false;
     //bool isOnRightWall = false;
 
+    Animator ani;
+
     // Use this for initialization
     void Start()
     {
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour
         tagGround = GameObject.Find(this.name + "/tag_ground").transform;
         //tagLeft = GameObject.Find(this.name + "/tag_left").transform;
         //tagRight = GameObject.Find(this.name + "/tag_right").transform;
+
+        ani = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +40,9 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+        Debug.Log(Mathf.Abs(rb.velocity.x));
     }
 
     void Move(float horizontalInput)
