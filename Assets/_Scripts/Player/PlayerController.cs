@@ -20,17 +20,11 @@ public class PlayerController : MonoBehaviour
     {
         myTrans = gameObject.GetComponent<Transform>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
-        tagGround = GameObject.Find(this.name + "/tag_ground").transform;
-        //tagLeft = GameObject.Find(this.name + "/tag_left").transform;
-        //tagRight = GameObject.Find(this.name + "/tag_right").transform;
 
         ani = GetComponentInChildren<Animator>();
-=======
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
         tagLeft = GameObject.Find(this.name + "/tag_Left").transform;
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
->>>>>>> f5032926c173483818b33b6e550e9d3354f98307
     }
 
     // Update is called once per frame
@@ -67,6 +61,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded || isOnLeft || isOnRight)
         {
             rb.velocity += JumpVelocity * Vector2.up/*,ForceMode2D.Impulse*/;
+            //rb.AddForce(0, 0, thrust, ForceMode.Impulse);
         }
     }
 }
