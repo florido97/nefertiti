@@ -3,13 +3,7 @@ using System.Collections;
 
 public class FallFloor : MonoBehaviour
 {
-    Interaction interAction;
-
-    void Start()
-    {
-        interAction = GameObject.Find("Player").GetComponent<Interaction>();
-        interAction.TrapDoor += TrapDoor;
-    }
+    PlayerInteraction interAction;
 
     void TrapDoor()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class Interaction : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
     public delegate void InteractionEventHandaler();
     public InteractionEventHandaler Door;
