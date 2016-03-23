@@ -6,7 +6,7 @@ public class PitFloor : MonoBehaviour
 
     public Transform pitFloorTarget;
 
-    Interaction interAction;
+    PlayerInteraction interAction;
     [SerializeField]
     private float speed;
     private Vector2 initalPos;
@@ -15,7 +15,7 @@ public class PitFloor : MonoBehaviour
     void Awake()
     {
         initalPos = transform.position;
-        interAction = GameObject.Find("Player").GetComponent<Interaction>();
+        interAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
         interAction.Floor += FloorSwitch;
     }
 

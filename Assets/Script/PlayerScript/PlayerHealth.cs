@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealthBar : MonoBehaviour {
 
 	public float maxHealth = 100f;
 	public float currentHealth = 0f;
