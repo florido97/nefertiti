@@ -13,6 +13,6 @@ public class FallFloor : MonoBehaviour
 
     void TrapDoor()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false);    
     }
 }
