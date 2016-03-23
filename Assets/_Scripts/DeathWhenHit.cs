@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DeathWhenHit : MonoBehaviour {
+public class DeathWhenHit : MonoBehaviour 
+{
 
     void OnCollisionEnter2D(Collider2D col)
     {

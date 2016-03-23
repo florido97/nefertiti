@@ -3,22 +3,47 @@ using System.Collections;
 
 public class Door : MonoBehaviour
 {
-    Interactie interActie;
-    // Use this for initialization
+
+    public Transform doorTarget;
+    public float doorTimeLeft = 10;
+
+    Interaction interAction;
+    [SerializeField]
+    private float _timeleft;
+    [SerializeField]
+    private float speed;
+    private Vector2 initalPos;
+    private bool doorIsUp = false;
+
     void Awake()
     {
-        interActie = GameObject.Find("Player").GetComponent<Interactie>();
-        interActie.StartTimer += DoorTimer;
+        initalPos = transform.position;
+        interAction = GameObject.Find("Player").GetComponent<Interaction>();
+        interAction.Door += DoorStart;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
+        float step = speed * Time.deltaTime;
+        if (doorIsUp)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, doorTarget.position, step);
+            _timeleft -= Time.deltaTime;
+        }
+        else 
+        {
+            transform.position = Vector3.MoveTowards(transform.position, initalPos, step);
+        }
+
+        if (_timeleft <= 0)
+        {
+            doorIsUp = false;
+            _timeleft = doorTimeLeft;
+        }
     }
-    void DoorTimer(int time)
+    void DoorStart()
     {
-        Debug.Log("derp " + time + this.name);
-        this.gameObject.GetComponent<Renderer>().material.color = new Color(21, 10, 38, 1);
+        doorIsUp = true;
     }
 }
