@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
 
         ani = GetComponentInChildren<Animator>();
+
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
         tagLeft = GameObject.Find(this.name + "/tag_Left").transform;
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
@@ -42,7 +43,6 @@ public class PlayerController : MonoBehaviour
         }
 
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
-        Debug.Log(Mathf.Abs(rb.velocity.x));
     }
 
     void Move(float horizontalInput)
