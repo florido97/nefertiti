@@ -22,10 +22,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
 
         ani = GetComponentInChildren<Animator>();
-<<<<<<< HEAD
 
-=======
->>>>>>> 899e4fc229b73b9be12974149edc50e80cfa78fa
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
         tagLeft = GameObject.Find(this.name + "/tag_Left").transform;
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
