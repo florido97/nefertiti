@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Scripts/Player/HealthBar.cs.meta
 guid: 85ff3367bc103234790028deab8fdd34
 timeCreated: 1458815411
+=======
+guid: 44e1d4271b766334bbd0616c59cf55b7
+timeCreated: 1458836514
+>>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971:Assets/_Scripts/Player/HealthBar.cs.meta
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
