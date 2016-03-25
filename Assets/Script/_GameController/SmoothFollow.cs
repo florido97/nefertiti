@@ -15,8 +15,8 @@ public class SmoothFollow : MonoBehaviour {
 	void FixedUpdate () 
 	{
 
-		float x = Input.GetAxis ("Horizontal");
-		float y = Input.GetAxis ("Vertical");
+		float x = Input.GetAxis ("Horizontal2");
+		float y = Input.GetAxis ("Vertical2");
 
 		float offsetX = _target.transform.position.x + x * _offset;
 		float offsetY = _target.transform.position.y + y * _offset;
