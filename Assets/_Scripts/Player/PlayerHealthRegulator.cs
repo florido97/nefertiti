@@ -14,8 +14,7 @@ public class PlayerHealthRegulator : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(GlobalVars.playerHealth);
-        //GlobalVars.playerHealth -= 1;
+        
         if (GlobalVars.playerHealth <= 0)
         {
             Debug.Log("DEATH HAS ITS GRIP ON YOU");
