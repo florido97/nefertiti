@@ -11,7 +11,7 @@ public class PlayerHealthBarUpdater : MonoBehaviour
 
     void Update()
     {
-        //currentHealth--;
+        currentHealth--;
         SetHealth(currentHealth);
     }
 
