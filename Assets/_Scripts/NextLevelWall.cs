@@ -6,20 +6,12 @@ public class NextLevelWall : MonoBehaviour
 {
     public int nextLevelNumber;
 
-<<<<<<< HEAD
     PlayerInteraction interAction;
-=======
-    Interaction interAction;
->>>>>>> master
 
     // Use this for initialization
     void Start()
     {
-<<<<<<< HEAD
-        interAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
-=======
-        interAction = GameObject.Find("Player").GetComponent<Interaction>();
->>>>>>> master
+		interAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
         interAction.NextLevel += NextLevel;
     }
     // Update is called once per frame

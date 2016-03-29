@@ -26,10 +26,10 @@ public class PlayerMovementTest : MonoBehaviour
 		rb2D.velocity = new Vector2(x * moveSpeed,0 );
 
 		if (Input.GetKey (KeyCode.RightArrow)) {
-			transform.eulerAngles = new Vector2(0,0);
+			transform.localScale = new Vector3 (3, transform.localScale.y, transform.localScale.z);
 		}
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			transform.eulerAngles = new Vector2(0,180);
+			transform.localScale = new Vector3 (-3, transform.localScale.y, transform.localScale.z);
 		}
 	}
 }

@@ -4,12 +4,12 @@ using System.Collections;
 public class DeathWhenHit : MonoBehaviour 
 {
 
-    void OnCollisionEnter2D(Collider2D col)
+	void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.tag == "PlayerObject")
+        if (col.gameObject.tag == "PlayerObject")
         {
             Application.Quit();
         }
-        Debug.Log(col.tag);
+		Debug.Log(col.gameObject.tag);
     }
 }

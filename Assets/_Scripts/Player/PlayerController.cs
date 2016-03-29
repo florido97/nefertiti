@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
 
         ani = GetComponentInChildren<Animator>();
-
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
         tagLeft = GameObject.Find(this.name + "/tag_Left").transform;
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
@@ -37,12 +36,21 @@ public class PlayerController : MonoBehaviour
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
 
         Move(Input.GetAxis("Horizontal"));
+
+			if (Input.GetKey (KeyCode.RightArrow)) {
+				transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
+			}
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
+			}
+
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
 
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+//        Debug.Log(Mathf.Abs(rb.velocity.x));
     }
 
     void Move(float horizontalInput)

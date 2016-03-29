@@ -33,7 +33,6 @@ public class EnemyWalking : MonoBehaviour
 
 
 			direction = -direction;
-			Debug.Log ("we hit something!!!!");
 		}
 	}
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour {
+/*public class Bullet : MonoBehaviour {
 
     private GameObject player;
     private Rigidbody2D rb;
@@ -61,3 +61,4 @@ public class Bullet : MonoBehaviour {
         }
     }
 }
+*/
