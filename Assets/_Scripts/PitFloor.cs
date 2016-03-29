@@ -6,7 +6,11 @@ public class PitFloor : MonoBehaviour
 
     public Transform pitFloorTarget;
 
+<<<<<<< HEAD
+    PlayerInteraction interAction;
+=======
     PlayerInteraction playerInterAction;
+>>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971
     [SerializeField]
     private float speed;
     private Vector2 initalPos;
@@ -15,8 +19,15 @@ public class PitFloor : MonoBehaviour
     void Awake()
     {
         initalPos = transform.position;
+<<<<<<< HEAD
+
+        interAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+
+        interAction.Floor += FloorSwitch;
+=======
         playerInterAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
         playerInterAction.Floor += FloorSwitch;
+>>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971
     }
 
     void Update()
