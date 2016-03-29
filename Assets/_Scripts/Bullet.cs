@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/*public class Bullet : MonoBehaviour
-{
+public class Bullet : MonoBehaviour {
 
     private GameObject player;
     private Rigidbody2D rb;
@@ -19,8 +18,7 @@ using System.Collections;
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(Scatter());
 
-        if (followPlayer == true)
-        {
+        if (followPlayer == true) {
             rb.gravityScale = 0;
         }
 
@@ -29,9 +27,9 @@ using System.Collections;
         }
     }
 
-    void Update()
+    void Update ()
     {
-        if (followPlayer == true)
+        if(followPlayer == true)
             rb.AddForce(((player.transform.position - transform.position) * bulletSpeed), ForceMode2D.Force);
 
         Rotate();
@@ -40,7 +38,7 @@ using System.Collections;
 
     void Rotate()
     {
-        float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(rb.velocity.y , rb.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
@@ -63,4 +61,3 @@ using System.Collections;
         }
     }
 }
-*/
