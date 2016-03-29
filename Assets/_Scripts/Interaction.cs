@@ -8,35 +8,31 @@ public class Interaction : MonoBehaviour
     public delegate void InteractionEventHandaler();
     public InteractionEventHandaler Door;
     public InteractionEventHandaler Floor;
-    public InteractionEventHandaler TrapDoor;
-    public InteractionEventHandaler NextLevel;
-
+    public InteractionEventHandaler PresurePlate;
 
     void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.tag == Tags.Lever)
         {
-            if (Input.GetButtonDown("Interact"))
+            if (Input.GetKeyDown("space"))
             {
+                Debug.Log("Hit Lever");
+
                 Door();
-                coll.gameObject.GetComponent<Renderer>().material.color = Color.blue;//temp
             }
         }
         if (coll.gameObject.tag == Tags.WallLever)
         {
-            if (Input.GetButtonDown("Interact"))
+            if (Input.GetKeyDown("space"))
             {
-                coll.gameObject.GetComponent<Renderer>().material.color = Color.blue;
+                Debug.Log("Hit WallLever");
                 Floor();
             }
         }
         if (coll.gameObject.tag == Tags.PresurePlate)
         {
-            TrapDoor();
-        }
-        if (coll.gameObject.tag == Tags.NextLevelWall)
-        {
-            NextLevel();
+            Debug.Log("Hit PresurePlate");
+            PresurePlate();
         }
     }
 }

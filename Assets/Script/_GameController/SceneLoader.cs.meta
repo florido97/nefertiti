@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Script/_GameController/SceneLoader.cs.meta
 guid: a3c8842b7f18d4a9b8680597fdcac7f6
 timeCreated: 1459104179
+=======
+guid: 5ec4818cadeefd449b90a618eab25d76
+timeCreated: 1455117909
+>>>>>>> origin/master:Assets/_Scripts/Interaction.cs.meta
 licenseType: Free
 MonoImporter:
   serializedVersion: 2

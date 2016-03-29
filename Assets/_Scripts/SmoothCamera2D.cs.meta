@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 60ec4096b7dd4de478881ad8439e69e8
 timeCreated: 1455528392
+=======
+<<<<<<< HEAD:Assets/_Scripts/SmoothCamera2D.cs.meta
+guid: 765980891e5360e42a1b3306bfc80476
+timeCreated: 1458815411
+=======
+guid: 5186bc1d7b1a9be488b9886d8cde6312
+timeCreated: 1458836514
+>>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971:Assets/_Scripts/SmoothCamera2D.cs.meta
+>>>>>>> origin/master
 licenseType: Free
 MonoImporter:
   serializedVersion: 2

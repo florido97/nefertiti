@@ -23,7 +23,6 @@ public class CollectibleScript : MonoBehaviour
 			cm.addCollectible(collectibleToAdd);
 			cm.addRelic(relicsToAdd);
 			Destroy(this.gameObject);
-			
 		}
 	}
 }

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Scripts/DeathWhenHit.cs.meta
+guid: 8a31236732762c944bdf585a41897c58
+timeCreated: 1458815411
+=======
+guid: 89f1780c8afe87f46936bf7bdcb85f1e
+timeCreated: 1458836514
+>>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971:Assets/_Scripts/DeathWhenHit.cs.meta
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

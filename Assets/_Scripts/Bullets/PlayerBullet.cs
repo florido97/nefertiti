@@ -17,4 +17,13 @@ public class PlayerBullet : MonoBehaviour {
         float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag != Tags.PlayerObject)
+        {
+            rb.velocity = Vector3.zero;
+            Destroy(gameObject, 0.25f);
+        }
+    }
 }

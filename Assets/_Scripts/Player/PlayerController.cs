@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
-
+        //Debug.Log("Left is: " + isOnLeft + ", OnGround is: " + isGrounded + ", Right is: " + isOnRight);
         Move(Input.GetAxis("Horizontal"));
 
 			if (Input.GetKey (KeyCode.RightArrow)) {
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     void Move(float horizontalInput)
     {
-        if (!canMoveInAir && !isGrounded)
+        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
             return;
         
 
