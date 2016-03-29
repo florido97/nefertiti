@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
-/*public class Bullet : MonoBehaviour {
-=======
 /*public class Bullet : MonoBehaviour
 {
->>>>>>> origin/master
 
     private GameObject player;
     private Rigidbody2D rb;
