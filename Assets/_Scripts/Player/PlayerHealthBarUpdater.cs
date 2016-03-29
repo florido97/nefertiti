@@ -6,13 +6,10 @@ public class PlayerHealthBarUpdater : MonoBehaviour
     public Image Bar;
     [SerializeField]
     private float maxHealth = 100f;
-    [SerializeField]
-    private float currentHealth = GlobalVars.playerHealth;
 
     void Update()
     {
-        currentHealth--;
-        SetHealth(currentHealth);
+        SetHealth(GlobalVars.playerHealth);
     }
 
     private void SetHealth(float myHealth)
