@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
         }
 
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+
+        CheckIfGrounded();
     }
 
     void Move(float horizontalInput)
@@ -62,6 +64,19 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity += JumpVelocity * Vector2.up/*,ForceMode2D.Impulse*/;
             //rb.AddForce(0, 0, thrust, ForceMode.Impulse);
+        }
+    }
+
+    void CheckIfGrounded()
+    {
+        if (!isGrounded)
+        {
+            ani.SetBool("Grounded", false);
+        }
+
+        else
+        {
+            ani.SetBool("Grounded", true);
         }
     }
 }

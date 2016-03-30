@@ -6,13 +6,10 @@ public class Door : MonoBehaviour
 
     public Transform doorTarget;
     public float doorTimeLeft = 10;
-<<<<<<< HEAD
-    
-    PlayerInteraction interAction;
-=======
+
 
     PlayerInteraction playerInterAction;
->>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971
+
     [SerializeField]
     private float _timeleft;
     [SerializeField]
@@ -23,13 +20,9 @@ public class Door : MonoBehaviour
     void Awake()
     {
         initalPos = transform.position;
-<<<<<<< HEAD
-        interAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
-        interAction.Door += DoorStart;
-=======
+
         playerInterAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
         playerInterAction.Door += DoorStart;
->>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971
     }
 
     void Update()
