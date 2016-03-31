@@ -16,14 +16,10 @@ public class Tags
     public const string Bulletpoint = "Bulletpoint";
     public const string wall = "Wall";
     public const string b0ssTrigger = "b0ssTrigger";
-<<<<<<< HEAD
     public const string Tut01 = "Tut01";
     public const string Tut02 = "Tut02";
     public const string Tut03 = "Tut03";
     public const string Tut04 = "Tut04";
     public const string Tut05 = "Tut05";
-
-=======
     public const string PlayerObject = "PlayerObject";
->>>>>>> origin/master
 }
