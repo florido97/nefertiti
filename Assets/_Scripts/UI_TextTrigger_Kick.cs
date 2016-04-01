@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class UI_TextTrigger : MonoBehaviour {
+public class UI_TextTrigger_Kick : MonoBehaviour {
     [SerializeField]
     private bool trigger01;
     [SerializeField]
