@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour {
 
     void Start()
     {
-        player = GameObject.Find(Tags.playerObject);
+        player = GameObject.Find(Tags.PlayerObject);
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(Scatter());
 
@@ -50,7 +50,7 @@ public class Bullet : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == Tags.playerObject)
+        if (col.tag == Tags.PlayerObject)
         {
             Debug.Log("Player Hit");
         }

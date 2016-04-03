@@ -4,11 +4,12 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed = 0f, JumpVelocity = 10;
+    public float speed = 0f, JumpVelocity = 10, invincibleTimeAfterHurt = 3;
     public LayerMask playerMask;
     public bool canMoveInAir = true;
     Transform myTrans, tagGround, tagLeft, tagRight;
     Rigidbody2D rb;
+    Collider2D[] myColls;
     bool isGrounded = false;
     bool isOnLeft = false;
     bool isOnRight = false;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        myColls = gameObject.GetComponents<Collider2D>();
         myTrans = gameObject.GetComponent<Transform>();
         rb = gameObject.GetComponent<Rigidbody2D>();
 
@@ -76,5 +78,48 @@ public class PlayerController : MonoBehaviour
             rb.velocity += JumpVelocity * Vector2.up/*,ForceMode2D.Impulse*/;
             //rb.AddForce(0, 0, thrust, ForceMode.Impulse);
         }
+    }
+
+    void Hurt()
+    {
+        GlobalVars.playerHealth -= 10;
+
+        TriggerHurt();
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        EnemyWalking timidEnemy = coll.collider.GetComponent<EnemyWalking>();
+        EnemyFollow agressiveEnemy = coll.collider.GetComponent<EnemyFollow>();
+        if (timidEnemy != null || agressiveEnemy != null)
+        {
+            Hurt();
+        }
+
+    }
+
+    public void TriggerHurt()
+    {
+        StartCoroutine(HurtBlinker());
+    } 
+
+    IEnumerator HurtBlinker()
+    {
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        int playerLayer = LayerMask.NameToLayer("Player");
+        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
+        foreach (Collider2D collider in myColls)
+        {
+            collider.enabled = false;
+            collider.enabled = true;
+        } 
+
+
+        ani.SetLayerWeight(1, 1);
+
+        yield return new WaitForSeconds(invincibleTimeAfterHurt);
+
+        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+        ani.SetLayerWeight(1, 0);
     }
 }

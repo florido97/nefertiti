@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
     void Awake()
     {
         initalPos = transform.position;
-        playerInterAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+        playerInterAction = GameObject.FindGameObjectWithTag(Tags.PlayerObject).GetComponent<PlayerInteraction>();
         playerInterAction.Door += DoorStart;
     }
 

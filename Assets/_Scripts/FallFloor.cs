@@ -7,7 +7,7 @@ public class FallFloor : MonoBehaviour
 
     void Start()
     {
-        playerInteraction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+        playerInteraction = GameObject.FindGameObjectWithTag(Tags.PlayerObject).GetComponent<PlayerInteraction>();
         playerInteraction.TrapDoor += TrapDoor;
     }
 

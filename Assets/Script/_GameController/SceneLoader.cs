@@ -9,12 +9,12 @@ public class SceneLoader : MonoBehaviour
 //		Application.LoadLevel (scene);
 //	}
 
-	void OnTriggerEnter2D(Collider2D coll)
-	{
-		if (coll.tag == "Cam") 
-		{
-			Application.LoadLevel("blabla");	
-		}
-	}
+	//void OnTriggerEnter2D(Collider2D coll)
+	//{
+	//	if (coll.tag == "Cam") 
+	//	{
+	//		Application.LoadLevel("blabla");	
+	//	}
+	//}
 		
 }
