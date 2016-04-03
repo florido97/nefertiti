@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour
     public float speed = 0f, JumpVelocity = 10, invincibleTimeAfterHurt = 3;
     public LayerMask playerMask;
     public bool canMoveInAir = true;
+
     Transform myTrans, tagGround, tagLeft, tagRight;
     Rigidbody2D rb;
+    GameObject particleSys;
     Collider2D[] myColls;
-    bool isGrounded = false;
-    bool isOnLeft = false;
-    bool isOnRight = false;
 
+    bool isGrounded = false, isOnLeft = false, isOnRight = false;
     Animator ani;
 
     // Use this for initialization
@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
         myColls = gameObject.GetComponents<Collider2D>();
         myTrans = gameObject.GetComponent<Transform>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-
         ani = GetComponentInChildren<Animator>();
+
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
         tagLeft = GameObject.Find(this.name + "/tag_Left").transform;
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
@@ -69,6 +69,15 @@ public class PlayerController : MonoBehaviour
         Vector2 moveVel = rb.velocity;
         moveVel.x = horizontalInput * speed;
         rb.velocity = moveVel;
+        if (moveVel.x >= 1 || moveVel.x <= -1)
+        {
+            transform.Find("Particle System").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.Find("Particle System").gameObject.SetActive(false);
+        }
+        
     }
 
     public void Jump()
@@ -77,7 +86,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity += JumpVelocity * Vector2.up/*,ForceMode2D.Impulse*/;
             //rb.AddForce(0, 0, thrust, ForceMode.Impulse);
+            //gameObject.GetChild("childname").SetActive(false);
         }
+        transform.Find("Particle System").gameObject.SetActive(false);
     }
 
     void Hurt()
