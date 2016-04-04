@@ -2,7 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class UI_TextTrigger_Kick : MonoBehaviour {
+public class UI_TextTrigger_Kick : MonoBehaviour
+{
+    //Kick
+
     [SerializeField]
     private bool trigger01;
     [SerializeField]
@@ -103,7 +106,8 @@ public class UI_TextTrigger_Kick : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         if (trigger01 == true)
         {
