@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerBullet : MonoBehaviour {
+public class PlayerBullet : MonoBehaviour
+{
 
     Rigidbody2D rb;
     int timeoutTime = 3;
 
-	void Start () {
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
 
-        Destroy(gameObject, timeoutTime) ;
+        Destroy(gameObject, timeoutTime);
     }
 
     void Update()
@@ -20,8 +22,7 @@ public class PlayerBullet : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Test");
-        if (col.gameObject.tag != "PlayerObject")
+        if (col.gameObject.tag != Tags.PlayerObject)
         {
             rb.velocity = Vector3.zero;
             Destroy(gameObject, 0.25f);

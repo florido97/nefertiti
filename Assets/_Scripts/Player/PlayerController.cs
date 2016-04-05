@@ -13,7 +13,11 @@ public class PlayerController : MonoBehaviour
     bool isOnLeft = false;
     bool isOnRight = false;
 
+    int _offset = 4;
+
     Animator ani;
+
+    GameObject hand;
 
     // Use this for initialization
     void Start()
@@ -22,21 +26,30 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
 
         ani = GetComponentInChildren<Animator>();
-
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
         tagLeft = GameObject.Find(this.name + "/tag_Left").transform;
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
+        hand = GameObject.Find(name + "/player/hand attack");
+        hand.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //
+        rotateHand();
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
-
+        //Debug.Log("Left is: " + isOnLeft + ", OnGround is: " + isGrounded + ", Right is: " + isOnRight);
         Move(Input.GetAxis("Horizontal"));
+
+			if (Input.GetKey (KeyCode.RightArrow)) {
+				transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
+			}
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
+			}
+
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
@@ -45,11 +58,12 @@ public class PlayerController : MonoBehaviour
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
 
         CheckIfGrounded();
+
     }
 
     void Move(float horizontalInput)
     {
-        if (!canMoveInAir && !isGrounded)
+        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
             return;
         
 
@@ -77,6 +91,21 @@ public class PlayerController : MonoBehaviour
         else
         {
             ani.SetBool("Grounded", true);
+        }
+    }
+
+    public void SetAttacking(bool B)
+    {
+        ani.SetBool("offsetOn", B);
+        hand.SetActive(B);
+    }
+
+    void rotateHand()
+    {
+        if (hand.activeInHierarchy == true)
+        {
+            hand.transform.Translate
+            
         }
     }
 }

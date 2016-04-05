@@ -1,4 +1,8 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 7e613981b45e94d2a88ba66479fe58b1
+timeCreated: 1459245888
+=======
 <<<<<<< HEAD:Assets/Artist Assets/Level.meta~master.meta
 guid: b7654ff994af108488e3d1109c653970
 timeCreated: 1458815410
@@ -6,6 +10,7 @@ timeCreated: 1458815410
 guid: 585a6d5292f2f86479f8b9bb1901af72
 timeCreated: 1458836511
 >>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971:Assets/Artist Assets/Level.meta~master.meta
+>>>>>>> origin/master
 licenseType: Free
 DefaultImporter:
   userData: 

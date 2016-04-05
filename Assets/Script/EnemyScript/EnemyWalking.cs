@@ -26,14 +26,13 @@ public class EnemyWalking : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "turnAround") 
+		if (other.gameObject.tag == Tags.TurnAround) 
 		{	
 
 			transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
 
 
 			direction = -direction;
-			Debug.Log ("we hit something!!!!");
 		}
 	}
 

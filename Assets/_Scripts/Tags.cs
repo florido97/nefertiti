@@ -4,6 +4,8 @@ using System.Collections;
 public class Tags
 {
     public const string Lever = "Lever";
+    public const string Enemy = "Enemy";
+    public const string TurnAround = "TurnAround";
     public const string WallLever = "WallLever";
     public const string PresurePlate = "PresurePlate";
     public const string NextLevelWall = "NextLevelWall";

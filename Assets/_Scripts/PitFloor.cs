@@ -5,7 +5,6 @@ public class PitFloor : MonoBehaviour
 {
 
     public Transform pitFloorTarget;
-
     PlayerInteraction playerInterAction;
 
     [SerializeField]

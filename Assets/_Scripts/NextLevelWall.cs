@@ -5,8 +5,6 @@ using System;
 public class NextLevelWall : MonoBehaviour
 {
     public int nextLevelNumber;
-
-
     PlayerInteraction playerInterAction;
 
 

@@ -8,6 +8,7 @@ public class PlayerHealthRegulator : MonoBehaviour
 
     void Awake()
     {
+        GlobalVars.playerHealth = 100;
         healthItem = GameObject.FindGameObjectWithTag(Tags.HealthPickup).GetComponent<HealthItem>();
         healthItem.Pickup += FullHeal;
     }
