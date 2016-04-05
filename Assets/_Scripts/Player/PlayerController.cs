@@ -4,17 +4,21 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed = 0f, JumpVelocity = 10;
+    public float speed = 0f, JumpVelocity = 10, invincibleTimeAfterHurt = 3;
     public LayerMask playerMask;
     public bool canMoveInAir = true;
+
     Transform myTrans, tagGround, tagLeft, tagRight;
     Rigidbody2D rb;
-    bool isGrounded = false;
-    bool isOnLeft = false;
-    bool isOnRight = false;
+    GameObject particleSys;
+    Collider2D[] myColls;
 
+<<<<<<< HEAD
     int _offset = 4;
 
+=======
+    bool isGrounded = false, isOnLeft = false, isOnRight = false;
+>>>>>>> b20b94420e0d568f033d0a35fd129021fb9844e6
     Animator ani;
 
     GameObject hand;
@@ -22,10 +26,11 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        myColls = gameObject.GetComponents<Collider2D>();
         myTrans = gameObject.GetComponent<Transform>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-
         ani = GetComponentInChildren<Animator>();
+
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
         tagLeft = GameObject.Find(this.name + "/tag_Left").transform;
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
@@ -43,12 +48,17 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Left is: " + isOnLeft + ", OnGround is: " + isGrounded + ", Right is: " + isOnRight);
         Move(Input.GetAxis("Horizontal"));
 
-			if (Input.GetKey (KeyCode.RightArrow)) {
-				transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
-			}
-			if (Input.GetKey (KeyCode.LeftArrow)) {
-				transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
-			}
+        float h = Input.GetAxis("Horizontal");
+
+        if (h > 0)
+        {
+            transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
+        }
+
+        if (h < 0)
+        {
+            transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -70,6 +80,15 @@ public class PlayerController : MonoBehaviour
         Vector2 moveVel = rb.velocity;
         moveVel.x = horizontalInput * speed;
         rb.velocity = moveVel;
+        if (moveVel.x >= 1 || moveVel.x <= -1)
+        {
+            transform.Find("Particle System").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.Find("Particle System").gameObject.SetActive(false);
+        }
+        
     }
 
     public void Jump()
@@ -78,7 +97,52 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity += JumpVelocity * Vector2.up/*,ForceMode2D.Impulse*/;
             //rb.AddForce(0, 0, thrust, ForceMode.Impulse);
+            //gameObject.GetChild("childname").SetActive(false);
         }
+        transform.Find("Particle System").gameObject.SetActive(false);
+    }
+
+    void Hurt()
+    {
+        GlobalVars.playerHealth -= 10;
+
+        TriggerHurt();
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        EnemyWalking timidEnemy = coll.collider.GetComponent<EnemyWalking>();
+        EnemyFollow agressiveEnemy = coll.collider.GetComponent<EnemyFollow>();
+        if (timidEnemy != null || agressiveEnemy != null)
+        {
+            Hurt();
+        }
+
+    }
+
+    public void TriggerHurt()
+    {
+        StartCoroutine(HurtBlinker());
+    } 
+
+    IEnumerator HurtBlinker()
+    {
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        int playerLayer = LayerMask.NameToLayer("Player");
+        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
+        foreach (Collider2D collider in myColls)
+        {
+            collider.enabled = false;
+            collider.enabled = true;
+        } 
+
+
+        ani.SetLayerWeight(1, 1);
+
+        yield return new WaitForSeconds(invincibleTimeAfterHurt);
+
+        Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+        ani.SetLayerWeight(1, 0);
     }
 
     void CheckIfGrounded()

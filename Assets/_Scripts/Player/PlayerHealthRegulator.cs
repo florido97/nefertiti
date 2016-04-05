@@ -21,6 +21,7 @@ public class PlayerHealthRegulator : MonoBehaviour
             Debug.Log("DEATH HAS ITS GRIP ON YOU");
             Destroy(gameObject);
         }
+
     }
     void FullHeal()
     {

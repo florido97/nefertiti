@@ -11,7 +11,7 @@ public class Death : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == Tags.playerObject)
+        if (col.gameObject.tag == Tags.PlayerObject)
         {
             col.gameObject.transform.position = GlobalVars.CurrentSavePoint;
         }

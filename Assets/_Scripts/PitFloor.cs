@@ -15,7 +15,7 @@ public class PitFloor : MonoBehaviour
     void Awake()
     {
         initalPos = transform.position;
-        playerInterAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+        playerInterAction = GameObject.FindGameObjectWithTag(Tags.PlayerObject).GetComponent<PlayerInteraction>();
         playerInterAction.Floor += FloorSwitch;
 
     }

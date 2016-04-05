@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class UI_TextTrigger : MonoBehaviour {
+
+    //kick
+
     [SerializeField]
     private bool trigger01;
     [SerializeField]
