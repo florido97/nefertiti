@@ -6,10 +6,7 @@ public class Door : MonoBehaviour
 
     public Transform doorTarget;
     public float doorTimeLeft = 10;
-
-    [SerializeField]
     PlayerInteraction playerInterAction;
-
 
     private float _timeleft;
     [SerializeField]
