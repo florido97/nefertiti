@@ -16,22 +16,20 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown("space"))
             {
-                Debug.Log("Hit Lever");
-
                 Door();
             }
         }
+
         if (coll.gameObject.tag == Tags.WallLever)
         {
             if (Input.GetKeyDown("space"))
             {
-                Debug.Log("Hit WallLever");
                 Floor();
             }
         }
+
         if (coll.gameObject.tag == Tags.PresurePlate)
         {
-            Debug.Log("Hit PresurePlate");
             PresurePlate();
         }
     }

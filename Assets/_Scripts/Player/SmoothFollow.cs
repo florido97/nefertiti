@@ -8,14 +8,6 @@ public class SmoothFollow : MonoBehaviour
     private GameObject _target;
     private float _offset = 4f;
 
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (_target != null)

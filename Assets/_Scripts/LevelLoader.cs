@@ -8,13 +8,11 @@ public class LevelLoader : MonoBehaviour
 
     public string levelToLoad;
 
-    // Use this for initialization
     void Start()
     {
         playerInZone = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Interact") && playerInZone)

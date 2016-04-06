@@ -8,17 +8,12 @@ public class NextLevelWall : MonoBehaviour
 
     PlayerInteraction playerInterAction;
 
-    // Use this for initialization
     void Start()
     {
         playerInterAction = GameObject.FindGameObjectWithTag(Tags.PlayerObject).GetComponent<PlayerInteraction>();
         playerInterAction.NextLevel += NextLevel;
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
     private void NextLevel()
     {
         Application.LoadLevel(nextLevelNumber);

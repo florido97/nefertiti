@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     bool isGrounded = false, isOnLeft = false, isOnRight = false;
     Animator ani;
 
-    // Use this for initialization
     void Start()
     {
         myColls = gameObject.GetComponents<Collider2D>();
@@ -29,14 +28,12 @@ public class PlayerController : MonoBehaviour
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
-        //Debug.Log("Left is: " + isOnLeft + ", OnGround is: " + isGrounded + ", Right is: " + isOnRight);
         Move(Input.GetAxis("Horizontal"));
 
         float h = Input.GetAxis("Horizontal");
@@ -57,7 +54,7 @@ public class PlayerController : MonoBehaviour
         }
 
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
-//        Debug.Log(Mathf.Abs(rb.velocity.x));
+
     }
 
     void Move(float horizontalInput)
@@ -84,9 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded || isOnLeft || isOnRight)
         {
-            rb.velocity += JumpVelocity * Vector2.up/*,ForceMode2D.Impulse*/;
-            //rb.AddForce(0, 0, thrust, ForceMode.Impulse);
-            //gameObject.GetChild("childname").SetActive(false);
+            rb.velocity += JumpVelocity * Vector2.up;
         }
         transform.Find("Particle System").gameObject.SetActive(false);
     }
