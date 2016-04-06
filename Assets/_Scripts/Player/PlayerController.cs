@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
@@ -119,7 +118,6 @@ public class PlayerController : MonoBehaviour
             collider.enabled = false;
             collider.enabled = true;
         } 
-
 
         ani.SetLayerWeight(1, 1);
 
