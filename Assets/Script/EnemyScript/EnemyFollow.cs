@@ -5,7 +5,7 @@ public class EnemyFollow : MonoBehaviour {
 
 	[SerializeField] private Transform player;
 	[SerializeField] private float minDistance = 4.0f;
-	[SerializeField] private float range;
+	private float range;
 	[SerializeField] private float moveSpeed = 3;
 
 	void Start () 
