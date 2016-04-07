@@ -15,12 +15,15 @@ public class EnemyFollow : MonoBehaviour {
 	
 	void Update ()
 	{
-//		Chase();
-		// Werkt al correct 
-		range = Vector2.Distance (transform.position, player.position);
-		
-		// range is smaller than MinDistance follow player
-		if (range <= minDistance)
+        //		Chase();
+        // Werkt al correct 
+        if (player != null)
+        {
+            range = Vector2.Distance(transform.position, player.position);
+        }
+
+        // range is smaller than MinDistance follow player
+        if (range <= minDistance)
 		{	
 			transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
 		}

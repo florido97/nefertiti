@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed = 0f, JumpVelocity = 10, invincibleTimeAfterHurt = 3;
+    public float speed = 10, inAirSpeed = 8, JumpVelocity = 20, invincibleTimeAfterHurt = 3;
     public LayerMask playerMask;
     public bool canMoveInAir = true;
 
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
@@ -47,24 +47,30 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
         }
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            Jump();
-        }
-
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
 
     }
 
+    void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }
+    }
+
     void Move(float horizontalInput)
     {
+
         if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
+        {
             return;
-        
+        }
 
         Vector2 moveVel = rb.velocity;
         moveVel.x = horizontalInput * speed;
         rb.velocity = moveVel;
+
         if (moveVel.x >= 1 || moveVel.x <= -1)
         {
             transform.Find("Particle System").gameObject.SetActive(true);
