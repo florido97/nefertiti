@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask playerMask;
     public bool canMoveInAir = true;
 
+    public float savedVelocity = 0f;
+
     Transform myTrans, tagGround, tagLeft, tagRight;
     Rigidbody2D rb;
     GameObject particleSys;
@@ -64,6 +66,10 @@ public class PlayerController : MonoBehaviour
 
         if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
         {
+            Vector2 airVelocity = rb.velocity;
+            airVelocity.x = savedVelocity + (Input.GetAxis("Horizontal") * inAirSpeed);
+            rb.velocity = airVelocity;
+            //ani.SetBool("isGround", false);
             return;
         }
 
@@ -84,9 +90,12 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
+
         if (isGrounded || isOnLeft || isOnRight)
         {
             rb.velocity += JumpVelocity * Vector2.up;
+            savedVelocity = Input.GetAxis("Horizontal") * speed;
+            //ani.SetBool("isround", true);
         }
         transform.Find("Particle System").gameObject.SetActive(false);
     }
@@ -94,7 +103,6 @@ public class PlayerController : MonoBehaviour
     void Hurt()
     {
         GlobalVars.playerHealth -= 10;
-
         TriggerHurt();
     }
 
