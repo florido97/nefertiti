@@ -14,9 +14,6 @@ public class Shooting : MonoBehaviour {
     //the direction wich the bullet has to go
     Vector2 direction;
 
-    //The lives remove if you shoot
-    int livesRemoved = 10;
-
     //The update sets the direction and detects input
     void Update () {
 
@@ -36,9 +33,6 @@ public class Shooting : MonoBehaviour {
         //Tests if the direction is not zero, wich means the player is not aiming
         if (direction != new Vector2(0,0))
         {
-            //Removes part the the players health
-            GlobalVars.playerHealth -= livesRemoved;
-
             //Instantiate a bullet from the prefab, on top of the players position
             GameObject shotBullet = Instantiate(bullet, gameObject.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
 

@@ -3,16 +3,26 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+<<<<<<< HEAD
     //Floats for the speed, JumpVelocity and time invincibilty after getting hit
     public float speed = 0f, JumpVelocity = 10, invincibleTimeAfterHurt = 3;
 
     //The layers the player can interact with
+=======
+
+    public float speed = 10, inAirSpeed = 8, JumpVelocity = 20, invincibleTimeAfterHurt = 3;
+>>>>>>> origin/master
     public LayerMask playerMask;
 
     //A bool the determins if the player can control the player sprite in the air
     public bool canMoveInAir = true;
 
+<<<<<<< HEAD
     //Transforms used to ground detection
+=======
+    public float savedVelocity = 0f;
+
+>>>>>>> origin/master
     Transform myTrans, tagGround, tagLeft, tagRight;
 
     //The rigidbody of the players object
@@ -44,7 +54,7 @@ public class PlayerController : MonoBehaviour
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
@@ -65,24 +75,34 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
         }
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            Jump();
-        }
-
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
 
     }
 
+    void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }
+    }
+
     void Move(float horizontalInput)
     {
+
         if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
+        {
+            Vector2 airVelocity = rb.velocity;
+            airVelocity.x = savedVelocity + (Input.GetAxis("Horizontal") * inAirSpeed);
+            rb.velocity = airVelocity;
+            //ani.SetBool("isGround", false);
             return;
-        
+        }
 
         Vector2 moveVel = rb.velocity;
         moveVel.x = horizontalInput * speed;
         rb.velocity = moveVel;
+
         if (moveVel.x >= 1 || moveVel.x <= -1)
         {
             transform.Find("Particle System").gameObject.SetActive(true);
@@ -96,9 +116,12 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
+
         if (isGrounded || isOnLeft || isOnRight)
         {
             rb.velocity += JumpVelocity * Vector2.up;
+            savedVelocity = Input.GetAxis("Horizontal") * speed;
+            //ani.SetBool("isround", true);
         }
         transform.Find("Particle System").gameObject.SetActive(false);
     }
@@ -106,7 +129,6 @@ public class PlayerController : MonoBehaviour
     void Hurt()
     {
         GlobalVars.playerHealth -= 10;
-
         TriggerHurt();
     }
 

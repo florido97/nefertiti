@@ -5,7 +5,7 @@ public class EnemyFollow : MonoBehaviour {
 
 	[SerializeField] private Transform player;
 	[SerializeField] private float minDistance = 4.0f;
-	[SerializeField] private float range;
+	private float range;
 	[SerializeField] private float moveSpeed = 3;
 
 	void Start () 
@@ -15,12 +15,15 @@ public class EnemyFollow : MonoBehaviour {
 	
 	void Update ()
 	{
-//		Chase();
-		// Werkt al correct 
-		range = Vector2.Distance (transform.position, player.position);
-		
-		// range is smaller than MinDistance follow player
-		if (range <= minDistance)
+        //		Chase();
+        // Werkt al correct 
+        if (player != null)
+        {
+            range = Vector2.Distance(transform.position, player.position);
+        }
+
+        // range is smaller than MinDistance follow player
+        if (range <= minDistance)
 		{	
 			transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
 		}
