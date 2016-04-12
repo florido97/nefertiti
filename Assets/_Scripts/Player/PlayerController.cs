@@ -3,77 +3,19 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     //Floats for the speed, in-Air additonal speed, JumpVelocity and time invincibilty after getting hit
     public float speed = 10, inAirSpeed = 8, JumpVelocity = 20, invincibleTimeAfterHurt = 3;
+
     //The layers the player will see as ground
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-    //Floats for the speed, JumpVelocity and time invincibilty after getting hit
-    public float speed = 0f, JumpVelocity = 10, invincibleTimeAfterHurt = 3;
-
-    //The layers the player can interact with
-=======
-
-    public float speed = 10, inAirSpeed = 8, JumpVelocity = 20, invincibleTimeAfterHurt = 3;
->>>>>>> origin/master
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/master
     public LayerMask playerMask;
 
     //A bool the determins if the player can control the player sprite in the air
     public bool canMoveInAir = true;
-    
+
     //A float that saves the velocity of the player
     private float savedVelocity = 0f;
 
-<<<<<<< HEAD
     //Transforms used to ground detection
-=======
-=======
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-    public LayerMask playerMask;
-
-    //A bool the determins if the player can control the player sprite in the air
-    public bool canMoveInAir = true;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-<<<<<<< HEAD
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-    //Transforms used to ground detection
-=======
-    public float savedVelocity = 0f;
-
->>>>>>> origin/master
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
     Transform myTrans, tagGround, tagLeft, tagRight;
 
     //The rigidbody of the players object
@@ -86,28 +28,8 @@ public class PlayerController : MonoBehaviour
     Collider2D[] myColls;
 
     //The bools used for ground detection
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
-    
-=======
-    bool isGrounded = false, isOnLeft = false, isOnRight = false;
 
->>>>>>> origin/master
-=======
-    bool isGrounded = false, isOnLeft = false, isOnRight = false;
-
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
-    bool isGrounded = false, isOnLeft = false, isOnRight = false;
-
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
-    bool isGrounded = false, isOnLeft = false, isOnRight = false;
-
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
     //The animator the player uses, on the player sprite
     Animator ani;
 
@@ -131,25 +53,8 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-
 
         Move(Input.GetAxis("Horizontal"));
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-
-
-        Move(Input.GetAxis("Horizontal"));
->>>>>>> origin/master
-
         //If none of the ground detection is hitting the ground the player is in the air
         if (!isGrounded && !isOnLeft && !isOnRight)
         {
@@ -160,46 +65,12 @@ public class PlayerController : MonoBehaviour
             playerIsInAir = false;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         //Move function sending the contoller input as a float
         Move(Input.GetAxis("Horizontal"));
-        
-        ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
-        if (!playerIsInAir)
-=======
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-        ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
 
+        ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
     }
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-        {
-            Debug.Log("Derp is in air");
-            ani.SetBool("isOnGround", true);
-        }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    }
-
-<<<<<<< HEAD
-    //put jump in update so there is no delay
-=======
-        ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
-
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-    }
-
->>>>>>> origin/master
     void Update()
     {
         if (Input.GetButtonDown("Jump"))
@@ -207,18 +78,10 @@ public class PlayerController : MonoBehaviour
             Jump();
             ani.SetBool("isOnGround", false);
         }
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
     }
 
     void Move(float horizontalInput)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (horizontalInput > 0)
         {
             transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
@@ -228,46 +91,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
         }
-        
-        if (canMoveInAir == false && playerIsInAir == true)
-        //if (!canMoveInAir && playerIsInAir)
-  
-=======
 
-        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
->>>>>>> origin/master
-=======
-
-        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
-
-        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
-
-        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
+        if (!canMoveInAir && playerIsInAir)
         {
             Vector2 airVelocity = rb.velocity;
             airVelocity.x = savedVelocity + (Input.GetAxis("Horizontal") * inAirSpeed);
             rb.velocity = airVelocity;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            //ani.SetBool("isGround", false);
->>>>>>> origin/master
-=======
-            //ani.SetBool("isGround", false);
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
-            //ani.SetBool("isGround", false);
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
-            //ani.SetBool("isGround", false);
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
             return;
         }
 
@@ -283,7 +112,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.Find("Particle System").gameObject.SetActive(false);
         }
-        
+
     }
 
     public void Jump()
@@ -293,22 +122,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity += JumpVelocity * Vector2.up;
             savedVelocity = Input.GetAxis("Horizontal") * speed;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            //ani.SetBool("isround", true);
->>>>>>> origin/master
-=======
-            //ani.SetBool("isround", true);
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
-            //ani.SetBool("isround", true);
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
-=======
-            //ani.SetBool("isround", true);
->>>>>>> f1e50ee1d88b4834831786627099b406670546b5
         }
         transform.Find("Particle System").gameObject.SetActive(false);
     }
@@ -333,7 +146,7 @@ public class PlayerController : MonoBehaviour
     public void TriggerHurt()
     {
         StartCoroutine(HurtBlinker());
-    } 
+    }
 
     IEnumerator HurtBlinker()
     {
@@ -344,7 +157,7 @@ public class PlayerController : MonoBehaviour
         {
             collider.enabled = false;
             collider.enabled = true;
-        } 
+        }
 
         ani.SetLayerWeight(1, 1);
 
