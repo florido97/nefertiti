@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/PlayAnimOnHit.cs.meta
 guid: b95ba8596c759434eb2ef8f8961de984
 timeCreated: 1460491472
+=======
+guid: b2e38a6ff47cadd428f38164a80fa348
+timeCreated: 1455617662
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5:Assets/_Scripts/Bullets/Bullet.cs.meta
 licenseType: Free
 MonoImporter:
   serializedVersion: 2

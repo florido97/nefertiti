@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Script/_GameController/SmoothFollow.cs.meta:Assets/Script/_GameController/SmoothFollow.cs.meta
+guid: 08bb0f6f38db4459cb6dfda7f0f8d259
+timeCreated: 1457690763
+=======
+guid: b2e38a6ff47cadd428f38164a80fa348
+timeCreated: 1455617662
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5:Assets/_Scripts/Bullet.cs.meta:Assets/_Scripts/Bullet.cs.meta
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

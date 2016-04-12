@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Scripts/Player/CamOffset.cs.meta:Assets/_Scripts/Player/CamOffset.cs.meta
+guid: 2cd3c54eb76c73740969c2d31c902048
+timeCreated: 1460488951
+=======
+guid: 08bb0f6f38db4459cb6dfda7f0f8d259
+timeCreated: 1457690763
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5:Assets/Script/_GameController/SmoothFollow.cs.meta:Assets/Script/_GameController/SmoothFollow.cs.meta
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

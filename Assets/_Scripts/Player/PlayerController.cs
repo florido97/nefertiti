@@ -16,12 +16,15 @@ public class PlayerController : MonoBehaviour
     private float savedVelocity = 0f;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     //The bools used for ground detection
     bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
 
     //The AudioClip that will be the sound the player makes when it gets hurt
     public AudioClip hurtClip;
 
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 =======
 >>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
     //Transforms used to ground detection
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
     Collider2D[] myColls;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     //The bools used for ground detection
     bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
@@ -48,6 +52,14 @@ public class PlayerController : MonoBehaviour
     //The AudioSource that the player has
     AudioSource src;
 
+=======
+    //The bools used for ground detection
+    bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
+
+    //The animator the player uses, on the player sprite
+    Animator ani;
+
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
     void Start()
     {
         //Getting all the diffrent componets of the player
@@ -76,7 +88,10 @@ public class PlayerController : MonoBehaviour
         {
             playerIsInAir = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             ani.SetBool("isOnGround", false);
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 =======
 >>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
         }
@@ -84,7 +99,10 @@ public class PlayerController : MonoBehaviour
         {
             playerIsInAir = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
             ani.SetBool("isOnGround", true);
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 =======
 >>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
         }
@@ -92,6 +110,10 @@ public class PlayerController : MonoBehaviour
         //Move function sending the contoller input as a float
         Move(Input.GetAxis("Horizontal"));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 =======
 
 >>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
@@ -114,12 +136,16 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 
         if (horizontalInput < 0)
         {
             transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
         }
 
+<<<<<<< HEAD
 =======
 
         if (horizontalInput < 0)
@@ -127,6 +153,8 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
         }
 
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
+=======
 >>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
         if (!canMoveInAir && playerIsInAir)
         {
@@ -195,8 +223,11 @@ public class PlayerController : MonoBehaviour
             collider.enabled = true;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         src.PlayOneShot(hurtClip);
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 =======
 >>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 
