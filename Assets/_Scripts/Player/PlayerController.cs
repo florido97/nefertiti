@@ -148,7 +148,6 @@ public class PlayerController : MonoBehaviour
         {
             Hurt();
         }
-
     }
 
     public void TriggerHurt()
