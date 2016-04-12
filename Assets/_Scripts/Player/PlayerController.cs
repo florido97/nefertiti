@@ -15,18 +15,6 @@ public class PlayerController : MonoBehaviour
     //A float that saves the velocity of the player
     private float savedVelocity = 0f;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    //The bools used for ground detection
-    bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
-
-    //The AudioClip that will be the sound the player makes when it gets hurt
-    public AudioClip hurtClip;
-
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
     //Transforms used to ground detection
     Transform myTrans, tagGround, tagLeft, tagRight;
 
@@ -39,27 +27,12 @@ public class PlayerController : MonoBehaviour
     //All the players colliders
     Collider2D[] myColls;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    //The bools used for ground detection
-    bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
-
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
-    //The animator the player uses, on the player sprite
-    Animator ani;
-
-    //The AudioSource that the player has
-    AudioSource src;
-
-=======
     //The bools used for ground detection
     bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
 
     //The animator the player uses, on the player sprite
     Animator ani;
 
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
     void Start()
     {
         //Getting all the diffrent componets of the player
@@ -67,7 +40,6 @@ public class PlayerController : MonoBehaviour
         myTrans = gameObject.GetComponent<Transform>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         ani = GetComponentInChildren<Animator>();
-        src = GetComponentInChildren<AudioSource>();
 
         //Searching for the ground detection tags.
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
@@ -87,36 +59,15 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded && !isOnLeft && !isOnRight)
         {
             playerIsInAir = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            ani.SetBool("isOnGround", false);
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
         }
         else
         {
             playerIsInAir = false;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            ani.SetBool("isOnGround", true);
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
         }
 
         //Move function sending the contoller input as a float
         Move(Input.GetAxis("Horizontal"));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
-=======
-
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
     }
 
@@ -135,27 +86,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 
         if (horizontalInput < 0)
         {
             transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
         }
 
-<<<<<<< HEAD
-=======
-
-        if (horizontalInput < 0)
-        {
-            transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
-        }
-
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
         if (!canMoveInAir && playerIsInAir)
         {
             Vector2 airVelocity = rb.velocity;
@@ -222,14 +158,6 @@ public class PlayerController : MonoBehaviour
             collider.enabled = false;
             collider.enabled = true;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-        src.PlayOneShot(hurtClip);
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
-=======
->>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 
         ani.SetLayerWeight(1, 1);
 
