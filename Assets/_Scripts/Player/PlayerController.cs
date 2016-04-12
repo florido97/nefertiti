@@ -6,11 +6,14 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     //Floats for the speed, in-Air additonal speed, JumpVelocity and time invincibilty after getting hit
     public float speed = 10, inAirSpeed = 8, JumpVelocity = 20, invincibleTimeAfterHurt = 3;
     //The layers the player will see as ground
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
@@ -23,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 10, inAirSpeed = 8, JumpVelocity = 20, invincibleTimeAfterHurt = 3;
 >>>>>>> origin/master
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> origin/master
@@ -40,16 +44,21 @@ public class PlayerController : MonoBehaviour
 =======
 =======
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
+=======
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
     public LayerMask playerMask;
 
     //A bool the determins if the player can control the player sprite in the air
     public bool canMoveInAir = true;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 <<<<<<< HEAD
+=======
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
     //Transforms used to ground detection
 =======
     public float savedVelocity = 0f;
@@ -57,7 +66,10 @@ public class PlayerController : MonoBehaviour
 >>>>>>> origin/master
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
@@ -77,12 +89,17 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
     
 =======
     bool isGrounded = false, isOnLeft = false, isOnRight = false;
 
 >>>>>>> origin/master
+=======
+    bool isGrounded = false, isOnLeft = false, isOnRight = false;
+
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
     bool isGrounded = false, isOnLeft = false, isOnRight = false;
 
@@ -117,8 +134,11 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 
@@ -142,12 +162,15 @@ public class PlayerController : MonoBehaviour
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         //Move function sending the contoller input as a float
         Move(Input.GetAxis("Horizontal"));
         
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         if (!playerIsInAir)
 =======
+=======
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
         ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
@@ -162,6 +185,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Derp is in air");
             ani.SetBool("isOnGround", true);
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     }
@@ -185,10 +209,13 @@ public class PlayerController : MonoBehaviour
         }
 =======
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
+=======
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
     }
 
     void Move(float horizontalInput)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -217,6 +244,10 @@ public class PlayerController : MonoBehaviour
 
         if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
+=======
+
+        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
         {
             Vector2 airVelocity = rb.velocity;
             airVelocity.x = savedVelocity + (Input.GetAxis("Horizontal") * inAirSpeed);
@@ -224,9 +255,13 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             //ani.SetBool("isGround", false);
 >>>>>>> origin/master
+=======
+            //ani.SetBool("isGround", false);
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
             //ani.SetBool("isGround", false);
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
@@ -261,9 +296,13 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             //ani.SetBool("isround", true);
 >>>>>>> origin/master
+=======
+            //ani.SetBool("isround", true);
+>>>>>>> f1e50ee1d88b4834831786627099b406670546b5
 =======
             //ani.SetBool("isround", true);
 >>>>>>> f1e50ee1d88b4834831786627099b406670546b5
