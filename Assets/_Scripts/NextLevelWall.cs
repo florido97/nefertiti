@@ -4,27 +4,20 @@ using System;
 
 public class NextLevelWall : MonoBehaviour
 {
+    //This Int is the number of the next level
     public int nextLevelNumber;
+
+    //The players interaction script
     PlayerInteraction playerInterAction;
 
-
-    // Use this for initialization
     void Start()
     {
-<<<<<<< HEAD
-
-        playerInterAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
-=======
+        //getting the players script and adding the nextlevel function
         playerInterAction = GameObject.FindGameObjectWithTag(Tags.PlayerObject).GetComponent<PlayerInteraction>();
->>>>>>> b20b94420e0d568f033d0a35fd129021fb9844e6
         playerInterAction.NextLevel += NextLevel;
-
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
+    //a function that loads the next level, based on te nextLevelNumber
     private void NextLevel()
     {
         Application.LoadLevel(nextLevelNumber);

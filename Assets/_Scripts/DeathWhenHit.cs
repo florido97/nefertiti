@@ -10,6 +10,5 @@ public class DeathWhenHit : MonoBehaviour
         {
             Application.Quit();
         }
-        Debug.Log(col.gameObject.tag);
     }
 }

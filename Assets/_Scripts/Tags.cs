@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Tags
 {
+    //All globally avaible tags, so we can avoid using in line strings
+
     public const string Lever = "Lever";
     public const string Enemy = "Enemy";
     public const string TurnAround = "TurnAround";

@@ -14,7 +14,6 @@ public class EnemyHealth : MonoBehaviour
         if (coll.gameObject.tag == Tags.PlayerBullet)
         {
             enemyHealth -= playerDammage;
-            //coll.gameObject.GetComponent<Renderer>().material.color = Color.blue;//temp
             
         }
     }
@@ -22,7 +21,6 @@ public class EnemyHealth : MonoBehaviour
     {
         if (enemyHealth <= 0)
         {
-            Debug.Log("MOOOOO " + enemyHealth );
             Destroy(gameObject);
         }
     }

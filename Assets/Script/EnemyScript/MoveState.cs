@@ -10,6 +10,10 @@ public class MoveState : MonoBehaviour {
 	public bool colliding;
 	public LayerMask detectWhat;
 	
+	void Start()
+	{
+
+	}
 
 
 	void Update() 

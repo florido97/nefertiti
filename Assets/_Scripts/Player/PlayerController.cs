@@ -3,83 +3,143 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    //Floats for the speed, in-Air additonal speed, JumpVelocity and time invincibilty after getting hit
+    public float speed = 10, inAirSpeed = 8, JumpVelocity = 20, invincibleTimeAfterHurt = 3;
 
-    public float speed = 0f, JumpVelocity = 10, invincibleTimeAfterHurt = 3;
+    //The layers the player will see as ground
     public LayerMask playerMask;
+
+    //A bool the determins if the player can control the player sprite in the air
     public bool canMoveInAir = true;
 
+    //A float that saves the velocity of the player
+    private float savedVelocity = 0f;
+
+<<<<<<< HEAD
+    //The bools used for ground detection
+    bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
+
+    //The AudioClip that will be the sound the player makes when it gets hurt
+    public AudioClip hurtClip;
+
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
+    //Transforms used to ground detection
     Transform myTrans, tagGround, tagLeft, tagRight;
+
+    //The rigidbody of the players object
     Rigidbody2D rb;
+
+    //The particleSystem on the player
     GameObject particleSys;
+
+    //All the players colliders
     Collider2D[] myColls;
 
 <<<<<<< HEAD
-    int _offset = 4;
-
 =======
-    bool isGrounded = false, isOnLeft = false, isOnRight = false;
->>>>>>> b20b94420e0d568f033d0a35fd129021fb9844e6
+    //The bools used for ground detection
+    bool isGrounded = false, isOnLeft = false, isOnRight = false, playerIsInAir = true;
+
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
+    //The animator the player uses, on the player sprite
     Animator ani;
 
-    GameObject hand;
+    //The AudioSource that the player has
+    AudioSource src;
 
-    // Use this for initialization
     void Start()
     {
+        //Getting all the diffrent componets of the player
         myColls = gameObject.GetComponents<Collider2D>();
         myTrans = gameObject.GetComponent<Transform>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         ani = GetComponentInChildren<Animator>();
+        src = GetComponentInChildren<AudioSource>();
 
+        //Searching for the ground detection tags.
         tagGround = GameObject.Find(this.name + "/tag_Ground").transform;
         tagLeft = GameObject.Find(this.name + "/tag_Left").transform;
         tagRight = GameObject.Find(this.name + "/tag_Right").transform;
-        hand = GameObject.Find(name + "/player/hand attack");
-        hand.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        rotateHand();
+        //Checking if ground detection is true
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
-        //Debug.Log("Left is: " + isOnLeft + ", OnGround is: " + isGrounded + ", Right is: " + isOnRight);
+
         Move(Input.GetAxis("Horizontal"));
-
-        float h = Input.GetAxis("Horizontal");
-
-        if (h > 0)
+        //If none of the ground detection is hitting the ground the player is in the air
+        if (!isGrounded && !isOnLeft && !isOnRight)
         {
-            transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
+            playerIsInAir = true;
+<<<<<<< HEAD
+            ani.SetBool("isOnGround", false);
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
+        }
+        else
+        {
+            playerIsInAir = false;
+<<<<<<< HEAD
+            ani.SetBool("isOnGround", true);
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
         }
 
-        if (h < 0)
-        {
-            transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
-        }
+        //Move function sending the contoller input as a float
+        Move(Input.GetAxis("Horizontal"));
+<<<<<<< HEAD
+=======
 
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
+        ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+    }
+
+    void Update()
+    {
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+            ani.SetBool("isOnGround", false);
         }
-
-        ani.SetFloat("speed", Mathf.Abs(rb.velocity.x));
-
-        CheckIfGrounded();
-
     }
 
     void Move(float horizontalInput)
     {
-        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
+        if (horizontalInput > 0)
+        {
+            transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
+        }
+<<<<<<< HEAD
+
+        if (horizontalInput < 0)
+        {
+            transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
+        }
+
+=======
+
+        if (horizontalInput < 0)
+        {
+            transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
+        }
+
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
+        if (!canMoveInAir && playerIsInAir)
+        {
+            Vector2 airVelocity = rb.velocity;
+            airVelocity.x = savedVelocity + (Input.GetAxis("Horizontal") * inAirSpeed);
+            rb.velocity = airVelocity;
             return;
-        
+        }
 
         Vector2 moveVel = rb.velocity;
         moveVel.x = horizontalInput * speed;
         rb.velocity = moveVel;
+
         if (moveVel.x >= 1 || moveVel.x <= -1)
         {
             transform.Find("Particle System").gameObject.SetActive(true);
@@ -88,16 +148,16 @@ public class PlayerController : MonoBehaviour
         {
             transform.Find("Particle System").gameObject.SetActive(false);
         }
-        
+
     }
 
     public void Jump()
     {
+
         if (isGrounded || isOnLeft || isOnRight)
         {
-            rb.velocity += JumpVelocity * Vector2.up/*,ForceMode2D.Impulse*/;
-            //rb.AddForce(0, 0, thrust, ForceMode.Impulse);
-            //gameObject.GetChild("childname").SetActive(false);
+            rb.velocity += JumpVelocity * Vector2.up;
+            savedVelocity = Input.GetAxis("Horizontal") * speed;
         }
         transform.Find("Particle System").gameObject.SetActive(false);
     }
@@ -105,7 +165,6 @@ public class PlayerController : MonoBehaviour
     void Hurt()
     {
         GlobalVars.playerHealth -= 10;
-
         TriggerHurt();
     }
 
@@ -123,7 +182,7 @@ public class PlayerController : MonoBehaviour
     public void TriggerHurt()
     {
         StartCoroutine(HurtBlinker());
-    } 
+    }
 
     IEnumerator HurtBlinker()
     {
@@ -134,8 +193,12 @@ public class PlayerController : MonoBehaviour
         {
             collider.enabled = false;
             collider.enabled = true;
-        } 
+        }
+<<<<<<< HEAD
 
+        src.PlayOneShot(hurtClip);
+=======
+>>>>>>> a2e5cebdb80f3a151cb2e239f1e9812668bcb4f5
 
         ani.SetLayerWeight(1, 1);
 
@@ -143,33 +206,5 @@ public class PlayerController : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
         ani.SetLayerWeight(1, 0);
-    }
-
-    void CheckIfGrounded()
-    {
-        if (!isGrounded)
-        {
-            ani.SetBool("Grounded", false);
-        }
-
-        else
-        {
-            ani.SetBool("Grounded", true);
-        }
-    }
-
-    public void SetAttacking(bool B)
-    {
-        ani.SetBool("offsetOn", B);
-        hand.SetActive(B);
-    }
-
-    void rotateHand()
-    {
-        if (hand.activeInHierarchy == true)
-        {
-            hand.transform.Translate
-            
-        }
     }
 }

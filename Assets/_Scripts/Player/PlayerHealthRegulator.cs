@@ -18,7 +18,6 @@ public class PlayerHealthRegulator : MonoBehaviour
         
         if (GlobalVars.playerHealth <= 0)
         {
-            Debug.Log("DEATH HAS ITS GRIP ON YOU");
             Destroy(gameObject);
         }
 
