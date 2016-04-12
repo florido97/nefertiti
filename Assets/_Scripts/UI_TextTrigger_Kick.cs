@@ -47,31 +47,26 @@ public class UI_TextTrigger_Kick : MonoBehaviour
         if (coll.gameObject.tag == Tags.Tut01)
         {
             trigger01 = true;
-            Debug.Log("Trigger 1 hit! " + trigger01);
         }
 
         if (coll.gameObject.tag == Tags.Tut02)
         {
             trigger02 = true;
-            Debug.Log("Trigger 2 hit! " + trigger02);
         }
 
         if (coll.gameObject.tag == Tags.Tut03)
         {
             trigger03 = true;
-            Debug.Log("Trigger 3 hit! " + trigger03);
         }
 
         if (coll.gameObject.tag == Tags.Tut04)
         {
             trigger04 = true;
-            Debug.Log("Trigger 4 hit! " + trigger04);
         }
 
         if (coll.gameObject.tag == Tags.Tut05)
         {
             trigger05 = true;
-            Debug.Log("Trigger 5 hit! " + trigger05);
         }
 
     }
