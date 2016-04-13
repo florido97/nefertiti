@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Tut03.prefab~HEAD.meta
 guid: bb3673c0d6a1d4e56ab6a94a76dfff9c
 timeCreated: 1460535313
+=======
+guid: a00811ede3fc630488ff096d587e6f80
+timeCreated: 1460500959
+>>>>>>> origin/master:Assets/Artist Assets/Level/Thumbs.db.meta
 licenseType: Free
 DefaultImporter:
   userData: 

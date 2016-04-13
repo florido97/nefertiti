@@ -3,50 +3,43 @@ using System.Collections;
 
 public class Door : MonoBehaviour
 {
-
+    //the target location for when they door move
     public Transform doorTarget;
+
+    //how long the door stays up
     public float doorTimeLeft = 10;
-<<<<<<< HEAD
 
-
-    PlayerInteraction interAction;
-
-
-=======
-<<<<<<< HEAD
-    
-    PlayerInteraction interAction;
-=======
-
+    //Players playerInterAction script
     PlayerInteraction playerInterAction;
->>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971
->>>>>>> origin/master
-    [SerializeField]
+
     private float _timeleft;
+
+    //Speed of the door's movement
     [SerializeField]
     private float speed;
+
+    //Initual position of the door
     private Vector2 initalPos;
+
+    //Determans if the door has moved up or not (Defealt false)
     private bool doorIsUp = false;
 
     void Awake()
     {
+        //set the inital position on the door to the door's current position
         initalPos = transform.position;
 
-        interAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
-<<<<<<< HEAD
+        //Find the players playerinteraction
+        playerInterAction = GameObject.FindGameObjectWithTag(Tags.PlayerObject).GetComponent<PlayerInteraction>();
 
-=======
->>>>>>> origin/master
-        interAction.Door += DoorStart;
-=======
-        playerInterAction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+        //Add the doorstart to the playerInterAction door delicate 
         playerInterAction.Door += DoorStart;
->>>>>>> f420e9374b74cf17c0eb6c6bc451ad4c0dda7971
     }
 
+    //The update checks if the doorUp is true. And if it is it, moves the door
     void Update()
     {
-
+        
         float step = speed * Time.deltaTime;
         if (doorIsUp)
         {
@@ -64,6 +57,8 @@ public class Door : MonoBehaviour
             _timeleft = doorTimeLeft;
         }
     }
+
+    //Start the door's movement
     void DoorStart()
     {
         doorIsUp = true;

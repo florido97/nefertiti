@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerBullet : MonoBehaviour {
+public class PlayerBullet : MonoBehaviour
+{
 
     Rigidbody2D rb;
     int timeoutTime = 3;
 
-	void Start () {
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
 
-        Destroy(gameObject, timeoutTime) ;
+        Destroy(gameObject, timeoutTime);
     }
 
     void Update()

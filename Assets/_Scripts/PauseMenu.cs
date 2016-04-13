@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuCanvas;
 
-    // Update is called once per frame
+
     void Update()
     {
         if (isPaused)
@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenuCanvas.SetActive(false);
             Time.timeScale = 1f;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
             isPaused = !isPaused;
         }

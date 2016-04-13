@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class UI_TextTrigger : MonoBehaviour {
+
+    //kick
+
     [SerializeField]
     private bool trigger01;
     [SerializeField]
@@ -38,7 +41,6 @@ public class UI_TextTrigger : MonoBehaviour {
     [SerializeField]
     private Text text05;
 
-    // Update is called once per frame
     void Update () {
         if(trigger02 == false && trigger03 == false && trigger04 == false && trigger05 == false)
         {
