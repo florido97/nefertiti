@@ -1,25 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuCamControl : MonoBehaviour {
+public class MenuCamControl : MonoBehaviour 
+{
 
-	public Transform currentMount; 
-	public float SpeedFactor = 0.1f; 
+	[SerializeField] private Transform currentMount; 
+	[SerializeField] private float SpeedFactor = 0.1f; 
 
-	// Use this for initialization
-	void Start () {
-
-	}
-
-	// Update is called once per frame
+		
 	void Update () 
 	{
+		// moves the camera from it's current position to (given) public Mount
 		transform.position = Vector3.Lerp (transform.position, currentMount.position, SpeedFactor );
-		transform.rotation = Quaternion.Slerp (transform.rotation, currentMount.rotation, SpeedFactor);
 	}
 
 	public void setmount (Transform newMount)
 	{
 		currentMount = newMount;
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit (); 
 	}
 }

@@ -34,15 +34,21 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
-        //Debug.Log("Left is: " + isOnLeft + ", OnGround is: " + isGrounded + ", Right is: " + isOnRight);
+
         Move(Input.GetAxis("Horizontal"));
 
-			if (Input.GetKey (KeyCode.RightArrow)) {
-				transform.localScale = new Vector3(3, transform.localScale.y, transform.localScale.z);
-			}
-			if (Input.GetKey (KeyCode.LeftArrow)) {
-				transform.localScale = new Vector3(-3, transform.localScale.y, transform.localScale.z);
-			}
+		float h = Input.GetAxis ("Horizontal");
+
+		if (h > 0) 
+		{
+			transform.localScale = new Vector3 (3, transform.localScale.y, transform.localScale.z);
+		}
+
+		if (h <0)
+		{
+			transform.localScale = new Vector3 (-3, transform.localScale.y, transform.localScale.z);
+
+		}
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -55,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     void Move(float horizontalInput)
     {
-        if (!canMoveInAir && !isGrounded && !isOnLeft && !isOnRight)
+        if (!canMoveInAir && !isGrounded)
             return;
         
 
