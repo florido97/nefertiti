@@ -61,6 +61,23 @@ public class PlayerController : MonoBehaviour
         isOnLeft = Physics2D.Linecast(myTrans.position, tagLeft.position, playerMask);
         isOnRight = Physics2D.Linecast(myTrans.position, tagRight.position, playerMask);
 
+<<<<<<< HEAD
+=======
+        Move(Input.GetAxis("Horizontal"));
+
+		float h = Input.GetAxis ("Horizontal");
+
+		if (h > 0) 
+		{
+			transform.localScale = new Vector3 (3, transform.localScale.y, transform.localScale.z);
+		}
+
+		if (h <0)
+		{
+			transform.localScale = new Vector3 (-3, transform.localScale.y, transform.localScale.z);
+
+		}
+>>>>>>> origin/master
         Move(Input.GetAxis("Horizontal"));
         //If none of the ground detection is hitting the ground the player is in the air
         if (!isGrounded && !isOnLeft && !isOnRight)
